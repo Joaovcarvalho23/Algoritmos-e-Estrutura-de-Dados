@@ -1,0 +1,29 @@
+TAREFA: escadinha
+PUBLICADA EM 01/07/2022
+ENTREGAR ATÉ 07/07/2022
+
+
+Recebe um arquivo texto chamado "escadinha.in" de números inteiros, um inteiro por linha, contendo pelo menos duas linhas.
+Cria um arquivo texto chamado "escadinha.out" contendo uma sequência de símbolos 0, 1 ou -1, representando para cada par de
+inteiros consecutivos da entrada se ambos os números são iguais (0), o primeiro é menor do que o segundo (1) ou menor do
+que o segundo (-1). Por exemplo, se o arquivo de entrada é
+
+10
+-50
+30
+30
+
+o arquivo de saída deve ser
+
+-1
+1
+0
+
+(Entenda assim: da primeira para a segunda linha descemos a escada, da segunda para a terceira subimos, da terceira para a
+quarta continuamos na mesma.) Veja em anexo um exemplo mais elaborado de arquivo de entrada e a saída que seu programa deveria
+produzir.
+
+Você deve entregar um arquivo com extensão .c em sua pasta Dropbox, mais precisamente dentro da pasta "escadinha"
+que será criada por mim. Seu arquivo deve ser nomeado "escadinha.c". Ressalto, é importante seguir essas regras para que
+sua atividade possa ser corrigida! A entrega é só isso mesmo: colocar seu arquivo escadinha.c na pasta escadinha.
+Se você usou outros arquivos (como a biblioteca simpio de Eric Roberts), coloque os arquivos necessários também.
