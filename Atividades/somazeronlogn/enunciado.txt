@@ -1,0 +1,23 @@
+TAREFA: somazeronlgn
+PUBLICADA EM 26/07/2022
+ENTREGAR ATÉ 31/07/2022
+
+
+Essa tarefa consiste em resolver novamente o problema da semana passada: implementar um algoritmo que resolve o problema de testar se, em um vetor de inteiros (positivos ou negativos), há dois índices distintos cujos valores somam 0.
+
+Só que agora, sua solução deve ter complexidade n lg n, onde n é o tamanho do vetor.
+
+Uma possibilidade para isso é: primeiro, ordena o vetor, em n lg n (use um dos algoritmos de ordenação eficientes que estudamos); em seguida percorra o vetor, e para cada posição visitada, dispare uma busca binária, para procurar um elemento simétrico.
+
+Você pode implementar uma solução diferente, desde que tenha complexidade n lg n.
+
+Assim como na semana anterior, você deve entregar seu código, juntamente de todos os arquivos necessários para que ele compile e funcione. Você fará isso na pasta "somazeronlgn" que vou criar no Dropbox.
+
+*** Correção ***
+
+- Programa não compila ou não funciona: 0
+- Programa compila, funciona mas não implementa uma solução evidente n lg n: 5
+- Programa compila, funciona, e é possível identificar uma solução n lg n, mas o código está confuso ou é difícil identificar essa solução: 8
+- Programa compila, funciona, implementa uma solução n lg n, e o código está bem organizado (é simples, legível, organizado, documentado, modular): 10
+
+Nesse exercício, vou *ler seu código*. Importante saber que nota 10, significa código de alta qualidade.
