@@ -1,0 +1,14 @@
+Vocês vão atuar nos algoritmos BF e KMP que vocês encontram em
+
+https://www-igm.univ-mlv.fr/~lecroq/string/
+
+No BF, vocês vão primeiro modificar o código para fazer busca com wildcard (#), exercício 5 - 5 daqui:
+
+https://www.ime.usp.br/~pf/algoritmos/aulas/strma.html
+
+Em seguida, vão colocar no BF um contador da quantidade de comparações de caracteres.
+Em seguida, vão colocar no KMP um contador da quantidade de comparações de caracteres.
+Vocês vão entregar no Dropbox dois arquivos, o primeiro com as três funções modificadas,
+o segundo um arquivo .txt com ao menos cinco testes que vocês vão realizar com os dois 
+algoritmos. Em cada teste, vocês executam uma busca de um padrão que você escolher com um 
+texto longo. Anota a quantidade de comparações feitas para cada algoritmo.

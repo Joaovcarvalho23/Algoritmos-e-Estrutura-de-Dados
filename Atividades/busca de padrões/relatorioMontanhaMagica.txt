@@ -1,0 +1,21 @@
+Relatório dos testes do arquivo montanha_magica.txt
+
+Padrão buscado: "himself"
+Contador KMP: 1920295
+Contador BF: 1940469
+
+Padrão buscado: "Lawyer"
+Contador KMP: 1940144
+Contador BF: 1940470
+
+Padrão buscado: "society"
+Contador KMP: 1935296
+Contador BF: 1940469
+
+Padrão buscado: "heard"
+Contador KMP: 1896821
+Contador BF: 1940471
+
+Padrão buscado: "strength"
+Contador KMP: 1925783
+Contador BF: 1940468
