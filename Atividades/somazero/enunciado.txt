@@ -1,0 +1,45 @@
+TAREFA: somazero
+PUBLICADA EM 15/07/2022
+ENTREGAR ATÉ 25/07/2022
+
+
+Sua tarefa nesta semana é escrever um programa em C que realiza a seguinte tarefa: lê um arquivo de números inteiros, um inteiro em cada linha; gera um arquivo contendo uma única linha, que deverá conter a palavra SIM ou NÃO. O arquivo de saída conterá SIM caso existam dois números inteiros no arquivo de entrada, em linhas distintas, cuja soma seja 0. Se nenhuma das somas de pares de números da entrada resultar em 0, o arquivo de saída contém NÃO.
+
+A primeira linha do arquivo de entrada contém a quantidade de inteiros a serem lidos. Os inteiros podem ser positivos ou negativos. Segue um exemplo de arquivo de entrada:
+
+5
+-2
+7
+0
+3
+-1
+
+Nesse arquivo, a primeira linha diz que há 5 inteiros a serem lidos. Em seguida, vem cinco linhas, uma para cada inteiro. Para essa entrada, seu programa diz NÃO no arquivo de saída, porque não é possível pegar dois inteiros e somar zero nesse conjunto de dados. Atenção: mesmo que haja 0 no arquivo de entrada, isso não quer dizer que existam dois inteiros em linhas distintas cuja soma seja zero. O problema consiste em procurar um par de números, em linhas distintas, cuja soma seja 0.
+
+O arquivo de entrada deve se chamar obrigatoriamente somazero.in e o de saída, somazero.out. Seu código deve se chamar somazero.c. Esses nomes são necessários para que a correção possa ser feita. Também é necessário atender os requisitos do exercício. Por exemplo, não coloque mensagens no arquivo de saída ("O arquivo de entrada não tem nenhum par de inteiros cuja soma seja 0", etc.). O arquivo de saída só tem uma linha, nela está escrito SIM ou NÃO.
+
+Você deve entregar também um arquivo de figura (jpg, png, qualquer formato) contendo um gráfico mostrando a quantidade de operações que seu algoritmo faz, em função do tamanho da entrada, para um certo conjunto de tamanhos de entrada. Ou seja, você deve fazer alguns testes no seu algoritmo, usando um contador de operações, como fizemos na semana passada. O título desse gráfico deve ser uma única palavra, indicando a provável complexidade do seu algoritmo, a partir do formato da curva: então você vai colocar como título "LOGARÍTIMICO", "LINEAR", "QUADRÁTICO", etc. Somente isso. 
+
+Importante: para ter um gráfico significativo, provavelmente você terá de forçar o pior caso em seus testes.
+
+*** INSTRUÇÕES PARA A ENTREGA ***
+
+O arquivo de imagem contendo o gráfico de seus testes deve ser entregue aqui, no Classroom. Procure o recurso de submissão de resposta de atividade. Não precisa entregar aqui seu código. Não entregue arquivo compactado. Entregue somente um arquivo de imagem contendo seu gráfico.
+
+O código fonte você entregará na pasta somazero que vou criar na sua pasta Dropbox da disciplina. Espere o momento de criação dessa pasta para enviar. Você deve copiar lá todos os arquivos C necessários para a compilação do seu programa. Caso seja necessário somente o somazero.c, não precisa entregar mais nada.
+
+
+Importante: não precisa entregar arquivos de entrada somazero.in ou de saída somazero.out. Entregue somente o fonte. Eu farei testes com seu código, com meus próprios arquivos somazero.in.
+
+
+*** CRITÉRIO PARA CORREÇÃO ***
+
+
+Código compila, funciona na bateria de testes e dá a resposta correta: 5 pontos.
+Código compila, funciona na bateria de testes, mas não dá a resposta correta: 2 pontos.
+Código não compila ou não funciona (segmentation fault, etc.): 0 pontos
+
+
+Gráfico entregue, e condizente com o código: 5 pontos
+Gráfico entregue, mas não condizente com o código: 2 pontos
+Gráfico não entregue: 0 pontos
