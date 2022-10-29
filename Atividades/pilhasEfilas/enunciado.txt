@@ -1,0 +1,14 @@
+Seu objetivo é implementar uma biblioteca de manipulação de filas, contendo dois arquivos: filas.c e filas.h. Sua biblioteca deve prover um tipo de dados "fila" que pode ser o que você preferir (uma struct, uma lista ligada). Atenção: importante que esse tipo de dados seja um ponteiro, para você poder passar a referência da estrutura para suas funções. Sua biblioteca deve prover no mínimo as seguintes funções (os nomes são auto-explicativos, mas você deve fazer documentação):
+
+fila criafila (void);
+void insere (fila f, int x);
+int remove (fila f);
+int vazia (fila f);
+
+Caso você queira implementar sua fila em vetores, você pode supor que sua função criafila aloca espaço máximo para um valor pré-determinado no seu código, digamos uma constante N que você pode definir assim (pode mudar o valor se quiser):
+
+#define N 100
+
+Vou usar sua biblioteca para implementar o algoritmo de Dijkstra, sem me preocupar em como ela está escrita. Ou seja, vou escrever o algoritmo em meu código incluindo seu fila.h e usando suas funções livremente.
+
+Você deve entregar sua biblioteca numa pasta "fila" que vou criar no Dropbox. Entregue os arquivos fila.h e fila.c e qualquer outro arquivo necessário para compilação. Eu (o cliente) não sou responsável por procurar externamente os arquivos necessários para compilação.
