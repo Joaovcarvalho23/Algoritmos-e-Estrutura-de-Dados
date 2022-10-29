@@ -1,0 +1,89 @@
+TAREFA: filadeprioridades
+PUBLICADA EM 29/07/2022
+ENTREGAR ATÉ 31/07/2022
+
+
+Sua tarefa consiste em implementar uma biblioteca de fila de prioridades baseada na estrutura heap, para fazer a gestão de um conjunto de valores (números inteiros), que chamamos de "prioridades". Nesse conjunto, deseja-se realizar as seguintes operações:
+
+- inserção de um novo número
+- remoção do menor número (então você implementará um MIN-HEAP)
+- alteração da prioridade de um elemento num dado índice
+
+Essas operações levarão à execução de uma das funções de correção de heap que aprendemos.
+
+Todas as operações devem ser executadas em complexidade lg n, onde n é a quantidade de valores armazenada.
+
+Sua biblioteca deve ter a interface descrita abaixo, implementada num arquivo pq.h. As funções devem ser implementadas em um arquivo chamado pq.c. É necessário manter os nomes e assinaturas dos arquivos e das funções. Você deve entregar ambos os arquivos. pq.h e pq.c, na pasta "filadeprioridades" que vou criar no Dropbox. Você deve entregar outros arquivos (como a biblioteca de E. Roberts) que são usados por seu código. Sua entrega deve ter o necessário para compilar sem erros e sem a necessidade de arquivos externos. Não entregue arquivo compactado.
+
+A correção consistirá num teste de stress de sua biblioteca. Vou executar seguidamente suas funções com grandes sequências de números. Então sua biblioteca deve estar correta, e também ser eficiente (se as operações começarem a demorar, ou não estão implementadas corretamente, ou não são executadas em complexidade lg n).
+
+// Representa uma fila de prioridades
+// com espaço máximo para m itens.
+struct pq_struct {
+   int m; // Número máximo de itens
+   int n; // Posição do último item presentemente armazenado
+   int *v;
+};
+
+typedef struct pq_struct *pq;
+
+// Constroi uma nova fila de prioridades
+// com espaço disponível m.
+pq buildpq (int m);
+
+// Extrair o menor valor armazenado na
+// fila de prioridades p, e devolve esse
+// valor. Assume que a fila não está
+// vazia
+int extractmin (pq p);
+
+// Insere x na fila de prioridades p.
+// Assume que a fila não está cheia.
+void insert (pq p, int x);
+
+// Aumenta o valor na posição k da fila
+// de prioridades p para um novo e maior
+// valor x. Assume que k é uma posição
+// válida.
+void incq (pq p, int k, int x);
+
+// Diminui o valor na posição k da fila
+// de prioridades p para um novo e menor
+// valor x. Assume que k é uma posição
+// válida.
+void decq (pq p, int k, int x);
+
+// Imprime o conteúdo de uma fila de prioridades.
+void dumppq (pq p);
+
+
+// Lê uma sequência de inteiros de um arquivo
+// de números inteiros chamado "dados.in",
+// contendo na primeira a quantidade de inteiros,
+// e na sequência um inteiro por linha.
+// Devolve uma fila de prioridades contendo esses
+// inteiros.
+pq loadpq ();
+
+// Grava o conteúdo do heap pq em um arquivo nomeado
+// "heap.out", contendo na primeira linha a
+// quantidade de elementos no heqp, e nas linhas
+// seguintes o conteudo do heap, um número por linha,
+// da posição 1 até a última.
+void savepq (pq p);
+
+
+
+*** CORREÇÃO ***
+
+- Não compila / não funciona: 0
+- Compila e funciona, mas não dá o resultado correto em todos os testes: 5
+- Compila e funciona, mas ou não usa estrutura heap, ou código muito difícil de ler/identificar a implementação: 7
+- Compila, funciona, usa estrutura heap, código de boa qualidade: 10
+
+
+
+*** CÓPIA ***
+
+
+Entregar o exercício feito por um colega é um risco alto para você e o colega. Posso fazer comparações entre os arquivos de forma automática, e detectar entregas iguais. Exercícios iguais são anulados! Não vá por esse caminho! Faça seu exercício!
