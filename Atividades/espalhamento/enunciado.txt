@@ -1,0 +1,41 @@
+Você encontrará anexado nesta atividade um arquivo texto contendo o primeiro genoma completo sequenciado do Coronavirus, sequência NC_045512.2 no NCBI (https://www.ncbi.nlm.nih.gov)
+
+Uma tarefa importante da Biologia Molecular Computacional é encontrar repetições de trechos em genomas. Repetições podem trazer informações importantes sobre o genoma. Por exemplo, repetições concatenadas podem estar associadas a doenças como esclerose lateral amiotrófica (ELA).
+
+Nesta tarefa, você deverá ler o genoma do Coronavirus em blocos consecutivos de 6 bases nitrogenadas (as bases são identificadas pelas letras A, T, C, G). Cada linha do genoma tem 60 letras, então, em cada linha, você deverá ler 10 blocos. Por exemplo, a primeira linha do arquivo é
+
+ATTAAAGGTTTATACCTTCCCAGGTAACAAACCAACCAACTTTCGATCTCTTGTAGATCT
+
+O primeiro bloco é ATTAAA, o segundo é AGGTTT, e assim por diante. (Você pode ignorar a última linha, que tem menos de 60 caracteres - pode simplesmente apagar essa linha do arquivo antes de executar seu programa.)
+
+Seu objetivo é contar, para cada bloco de 6 bases, quantas vezes esse bloco é encontrado no genoma inteiro, durante a leitura (de blocos consecutivos de 6 caracteres). Por exemplo, o primeiro bloco, ATTAAA, repete-se 25 vezes no genoma, em posições diversas (abra o arquivo em um editor de texto e faça uma busca). Todavia, contando-se somente blocos de 6 em 6 símbolos, a partir do começo de cada linha, há somente 3 blocos iguais a ATTAAA no genoma inteiro. É esse último número que seu programa deve encontrar.
+
+Para isso, você deverá utilizar uma tabela de espalhamento para armazenar os blocos de 6 bases. Também deverá criar uma função de espalhamento que, dado o bloco de 6 bases, produz um inteiro (uma posição na tabela). Para tratamento de colisões, você deve usar encadeamento externo (ou seja, uma lista ligada de strings).
+
+Sua implementação deve conter no mínimo um arquivo ht.c e um arquivo ht.h, que implementam uma tabela de espalhamento de strings. Sua tabela consiste de uma struct (com os dados que você julgar relevante para sua estrutura) e um tipo de dados HT (que é um ponteiro para instâncias dessas structs). Sua biblioteca deve conter no mínimo as seguintes funções:
+
+// Cria uma nova tabela de hashing com colisões
+// tratadas por encadeamento; M é o tamanho da tabela
+HT cria_ht(int M);
+
+// Insere uma chave ch na tabela de hashing t.
+// Se ch não pertence à tabela, o valor da nova
+// célula criada é 1.
+// Se já pertence, incrementa o valor.
+void put(HT t, char *ch)
+
+// Devolve o valor associado à chave ch na tabela t.
+// Se ch não está na tabela, devolve -1.
+int get(HT t, char *ch)
+
+// Função de espalhamento usada na tabela
+int hash(char *ch, int M);
+
+// Imprime o conteúdo de uma tabela de espalhamento t
+void printHT(HT t);
+
+Nessas funções, ch são sempre strings de tamanho 6 (tecnicamente você poderia passar strings de qualquer tamanho, mas vamos supor que essa tabela é projetada especificamente para essa contagem de strings). Para a função de espalhamento, você pode usar a sugestão no final da página seguinte, que faz parte do conteúdo desta semana:
+
+https://www.ime.usp.br/~pf/algoritmos/aulas/hash.html
+
+Além dos arquivos ht.c e ht.h, você deve entregar qualquer arquivo necessário para a compilação do seu código, e também um arquivo main.c que gera um arquivo conta_genoma.out que consiste de uma sequência de linhas, cada linha contendo: um bloco de 6 bases, seguido da quantidade de ocorrências desse bloco (separado por um espaço). Sugiro que você crie arquivos ll.c e ll.h com a estrutura de lista que você usará na sua tabela. Invista na modularização.
