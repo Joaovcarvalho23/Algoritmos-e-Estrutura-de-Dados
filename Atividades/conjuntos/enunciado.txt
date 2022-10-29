@@ -1,0 +1,108 @@
+Sua tarefa consiste em entregar uma biblioteca de manipulação de conjuntos de números inteiros, que devem ser implementados através de listas duplamente ligadas.
+
+Conjuntos são coleções de objetos, nos quais não há dois membros repetidos. Em um conjunto, cada elemento aparece uma única vez. Pensando na implementação, um conjunto será representado por uma lista duplamente ligada onde não há dois nós contendo o mesmo inteiro. Observe que, embora uma lista imponha uma sequência nesses elementos, em um conjunto a ordem dos elementos não importa.
+
+Queremos em nossa biblioteca implementar as seguintes operações de manipulação de conjuntos (além de operações de entrada e saída): união, interseção, inserção, remoção, diferença, diferença simétrica, teste de se um inteiro pertence a um conjunto, teste de se um conjunto é subconjunto de outro, teste de se um conjunto é vazio, consulta do tamanho.
+
+Mais precisamente, sua biblioteca deve ter dois arquivos: conjuntos.h e conjuntos.c. O arquivo conjunto.h deve conter um tipo de dados chamado "conjunto". Esse tipo de dados deve ser um apelido para ponteiro para uma lista duplamente ligada, ou seja, você fará no seu conjunto.h algo como:
+
+typedef minhalista *conjunto;
+
+Aqui, "minhalista" é seu tipo de dados (sua struct) que representa listas duplamente ligadas. Você pode dar o nome que quiser para seu tipo de dados de lista. O cliente, o usuário de suas bibliotecas, não vai se interessar em olhar para isso. O interesse dele é fazer um include de conjuntos.h no seu código, e usar suas funções. Ou seja, seu cliente quer escrever o seguinte no seu código:
+
+#include "conjuntos.h"
+
+...
+
+void main () {
+
+...
+
+   conjunto X, Y;
+   X = criaconjunto ();
+   Y = leconjunto (FILE *f);
+
+...
+
+}
+
+A função
+
+conjunto criaconjunto ();
+
+meramente aloca um conjunto vazio na memória, e devolve um ponteiro para esse conjunto. Recomendo que você implemente listas ligadas com cabeça, e que um conjunto vazio seja uma lista contendo somente a cabeça. Veja uma descrição dessa e da função leconjunto a seguir.
+
+Segue as assinaturas das demais funções de sua biblioteca, bem como sua documentação (mais para frente explico o que é GRUPO 1 e GRUPO 2). É necessário respeitar essas assinaturas. O usuário simplesmente vai incluir seu conjunto.h no código e usar as funções. Fato importante: as funções não destroem os conjuntos recebidos como parâmetro. Por exemplo, ao se realizar a intersecção entre dois conjuntos, sua função vai criar um novo conjunto, representando os elementos que pertencem à interseção; não vai mover nós dos conjuntos originais para outro canto. Atenção: inclua a biblioteca stdbool.h no seu código, para poder usar o tipo de dados bool.
+
+
+*************************************************************************************************************
+
+GRUPO 1:
+
+
+// Aloca e devolve um conjunto vazio.
+conjunto criaconjunto ();
+
+// Cria um conjunto contendo os elementos lidos de um arquivo de inteiros representado por f.
+// Esse arquivo tem na primeira linha a quantidade de inteiros a ser lida, e nas linhas seguintes,
+// os inteiros, um por linha.
+// Devolve um conjunto representando esses inteiros.
+conjunto leconjunto (FILE *f);
+
+// Grava o conteudo do conjunto X no arquivo f.
+// O arquivo tem o formato descrito na documentação da função leconjunto.
+void salvaconjunto (FILE *f, conjunto X);
+
+// Insere o inteiro z no conjunto X. Se X já contém esse valor, nenhuma modificação é feita.
+void insere (conjunto X, int z);
+
+// Remove o inteiro z do conjunto X. Se X não contém esse valor, nenhuma modificação é feita.
+void retira (conjunto X, int z);
+
+
+// Testa se o inteiro z pertence ao conjunto X.
+bool pertence (conjunto X, int z);
+
+// Devolve um conjunto representando a união dos conjuntos X e Y.
+conjunto uniao (conjunto X, conjunto Y);
+
+// Devolve um conjunto representando a intersecção dos conjuntos X e Y.
+conjunto interseccao (conjunto X, conjunto Y);
+
+GRUPO 2:
+
+// Testa se X é um subconjunto de Y.
+bool subconjunto (conjunto X, conjunto Y);
+
+// Devolve um conjunto representando a diferença de conjuntos X - Y.
+conjunto diferenca (conjunto X, conjunto Y);
+
+// Devolve um conjunto representando a diferença simétrica entre os conjuntos X - Y.
+conjunto diferencasim (conjunto X, conjunto Y);
+
+// Devolve a quantidade de elementos do conjunto X.
+int cardinalidade (conjunto X);
+
+// Testa se o conjunto X é vazio.
+bool vazio (conjunto X);
+
+*************************************************************************************************************
+
+Uma característica importante de uma boa implementação é que o trabalho mais pesado é feito pelas funções mais fundamentais como tamanho e interseção. Em seguida, outras funções podem ser feitas meramente combinando o uso de funções elementares.
+
+Além dos arquivos conjunto.h e conjunto.c, você terá que implementar sua infra-estrutura de listas ligadas. Não há regra para isso - você faz como quiser. Mas sugiro que você implemente arquivos lldupla.h e lldupla.c, contendo a definição de sua estrutura de listas e as funções fundamentais como busca, inseção e remoção. Essas funções são então utilizadas internamente por sua biblioteca de conjuntos.
+
+*** CORREÇÃO ***
+
+Esse exercício vale as notas das semanas 6 e 7. É por isso que fiz a divisão entre GRUPO 1 e  GRUPO 2 acima. GRUPO 1 é usado para a nota da semana 6, GRUPO 2 para a nota da semana 7.
+
+Primeiramente, é preciso que seu código compile. Caso não compile, não posso atribuir nota! Também é preciso que você use listas duplamente ligadas para implementar sua biblioteca de conjuntos. Usar outra estrutura (como vetores simplesmente) coloca sua entrega fora do objetivo do exercício, e nesse caso, também não posso atribuir nota.
+
+A nota da semana 6 segue os seguintes critérios:
+
+- criação de conjuntos funcionando: funções criaconjunto, leconjunto e salvaconjunto - 5 pontos
+- cada uma das outras cinco funções do GRUPO 1 funcionando: 1 pontos para cada função
+- código desorganizado, projeto desestruturado (tudo em um único arquivo por exemplo) - perde 1 ponto
+
+
+A nota da semana 7 consiste em 2 pontos para cada uma das 5 funções do GRUPO 2 implementadas e funcionando.
