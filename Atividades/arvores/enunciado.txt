@@ -1,0 +1,51 @@
+Nesta semana estudamos conceito e implementação de árvores binárias, com base no material de P. Feofiloff:
+
+https://www.ime.usp.br/~pf/algoritmos/aulas/bint.html#arithmetic-expression
+
+Sua tarefa consiste em explorar uma aplicação que também estudamos nesta semana, a representação de expressões aritméticas em árvores binárias.
+
+Sua primeira preocupação deverá ser a implementação de uma biblioteca de manipulação de árvores binárias de inteiros, em dois arquivos: arvores.h e arvores.c. Você deve criar um tipo de dados "noh" que representa sua struct para um nó de árvore, e um tipo para representação de árvores chamado "arvore", que deve ser um ponteiro (segundo discutido nas aulas). Sua biblioteca conterá nesta semana algumas poucas funções, e semana que vem será incrementada com novas funções. Essencialmente, você precisa implementar uma função no *cria_noh (int x) que aloca um nó contendo o inteiro x, e qualquer outra função que você achar útil.
+
+Como aplicação, você deve implementar uma biblioteca para manipulação de expressões na notação posfixa, com os arquivos posfixa.h e posfixa.c. Pode supor que suas expressões são bem formadas, que os operandos são os dígitos de 1 a 9, que os operadores são +, -, *, / e que não há espaços dentro da expressão (ou seja é uma string como 75*315+-/). Sua biblioteca tem as seguintes funções, e internamente vão manipular árvores de expressões para realizar essas operações. Importante: mais abaixo, após a lista das funções, leia os requisitos para a implementação:
+2 pontos
+// Constrói a árvore da expressão em notação posfixa exp. Devolve a raiz dessa árvore.
+arvore arvoreposf (char *exp);
+
+2 pontos
+// Devolve o valor de uma expressão na notação posfixa exp.
+int valorposf (char *exp);
+
+1 ponto
+// Converte a expressão exp na notação posfixa para uma nova string representando a mesma expressão na notação
+// infixa. A expressão devolvida tem necessariamente um ( e ) envolvendo cada grupo de operação/operandos que
+// aparece na expressão, mesmo que a precedência de operadores dispense parêntesis. Exemplo de expressão
+// devolvida: ((5*3)+2)
+char *posfinf (char *exp);
+
+1 ponto
+// Converte a expressão exp na notação posfixa para uma nova string representando a mesma expressão na notação prefixa.
+char *posfpref (char *exp);
+
+2 pontos
+// Recebe a raiz de uma árvore representando uma expressão aritmética contendo pelo menos um operador.
+// Transforma essa árvore da seguinte forma: todo nó que é pai de duas folhas é substituído por uma folha, contendo
+// o resultado da operação representada por esse nó.
+// Devolve a expressão na notação posfixa da árvore reduzida.
+char *reduz (noh *r);
+
+1 ponto
+// Salva no arquivo arq a impressão da árvore v, contendo um nó por linha, e
+// evidenciando o nível de cada nó com o símbolo _ (underscore; conte dois símbolos por nível).
+void salva_arvore (char * arq, arvore v);
+
+*** Orientações sobre a implementação ***/
+
+A função arvoreposf tem a mesmo esquema de uma calculadora de expressões na notação posfixa. A ideia da calculadora é usar uma pilha (então você deve também enviar uma biblioteca pilha.c e pilha.h) e percorrer a expressão da esquerda para a direita. Se você lê um inteiro, empilha. Se lê um operador, desempilha dois inteiros, realiza a conta e empilha o resultado. Mas não queremos uma calculadora, queremos uma maneira de converter sua expressão em uma árvore. A diferença é que neste caso sua pilha será uma pilha de nós de árvore (então você terá que modificar seus arquivos pilha.c e pilha.h para armazenar não inteiros, mas dados do tipo noh *). Se você ler um inteiro, empilha um nó contendo esse inteiro. Se lê um operador, cria um nó para esse operador, desempilha dois nós, faz com que eles sejam filhos do nó do operador, e empilha o nó do operador (que será aqui uma raiz de uma árvore).
+
+Curiosamente não é fácil encontrar uma descrição explícita em livros texto sobre essa conversão (talvez porque ela seja já folclórica). Há alguns vídeos que mostram como fazer, o que segue abaixo é relativamente claro e conciso:
+
+https://youtu.be/WHs-wSo33MM
+
+As funções valorposf, posfinf  e posfpref devem ser baseadas em percursos de árvores, conforme estudamos na semana, e devem obrigatoriamente ser recursivas. Suas funções devem explicitamente construir árvores, e realizar nelas esses percursos ou outras operações.
+
+A construção de uma árvore deve seguir a seguinte restrição: para todo nó com dois filhos, a subárvore à esquerda tem altura menor do que a subárvore à direita; caso ambas tenham a mesma altura, o valor da expressão representada pela subárvore à esquerda é menor do que o da subárvore à direita; em caso de novo empate, qualquer ordem é válida.
